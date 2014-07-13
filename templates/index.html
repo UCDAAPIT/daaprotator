@@ -4,21 +4,21 @@
 <head>
     <title>DAAP News & Weather</title>
     <link href="{{ STATIC_URL }}css/main.css" rel="stylesheet">
+    <link href="{{ STATIC_URL }}css/slick.css" rel="stylesheet">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}js/slick.js"></script>
+    <script  src="{{ STATIC_URL }}js/main.js"></script>
 </head>
 <body>
-<div class="col-md-4">
+<div class="col-md-4" id="weather_col">
     {# append weather stuff here  #}
     </div>
-<div class="col-md-4">{% for tweet in tweets %}
-    {{ tweet|safe }}
-{#    <p><img src="{{ tweet.profile_picture_url }}">{{ tweet.tweet_user }} {{ tweet.tweet_content }}</p>#}
-{% endfor %}
+<div class="col-md-4" id="twitter_col">
 </div>
 <div class="col-md-4">
-    some tezt
+    <div id="time"></div>
 </div>
 </body>
 </html>

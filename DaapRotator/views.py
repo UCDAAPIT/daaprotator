@@ -20,4 +20,11 @@ def twitter(request):
     return render(request, "twitter.html",{"tweets": get_twitter_feed()})
 
 def weather(request):
-    return render(request, "weather.html")
+    weather_data = get_weather_data_as_json()
+    kwargs = {}
+    kwargs['weather_desc'] = str(weather_data['current_observation']['weather']).replace("(","").replace(")", "").replace(",","").replace("'","")
+    kwargs['winds'] = str(weather_data['current_observation']['wind_string']).replace("Gusting to", "-")
+    kwargs['weather_image_src'] = str(weather_data['current_observation']['icon_url'])
+    temp_str = str(weather_data['current_observation']['temperature_string'])
+    kwargs['temp'] = temp_str[0:temp_str.find('F')+1].replace(" ", "&deg;")
+    return render(request, "weather.html", kwargs)
