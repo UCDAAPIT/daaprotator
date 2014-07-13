@@ -10,4 +10,7 @@ urlpatterns = patterns('',
 
     url(r'^admin/', include(admin.site.urls)),
     url(r'^$', 'DaapRotator.views.index', name='home'),
+    url(r'^twitter/$', 'DaapRotator.views.twitter', name='home'),
+    url(r'^weather/$', 'DaapRotator.views.weather', name='home'),
+
 )

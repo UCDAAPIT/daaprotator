@@ -1,11 +1,27 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-    <title></title>
+    <title>DAAP News & Weather</title>
+    <link href="{{ STATIC_URL }}css/main.css" rel="stylesheet">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 </head>
 <body>
-<p>The current weather in Cincinnati is: </p>
-<img src="{{ weather_image_src }}">
-<p> {{ weather_desc }} {{ temp }} winds {{ winds }} </p>
+<div class="col-md-4">
+    {# append weather stuff here  #}
+    </div>
+<div class="col-md-4">{% for tweet in tweets %}
+    {{ tweet|safe }}
+{#    <p><img src="{{ tweet.profile_picture_url }}">{{ tweet.tweet_user }} {{ tweet.tweet_content }}</p>#}
+{% endfor %}
+</div>
+<div class="col-md-4">
+    some tezt
+</div>
 </body>
 </html>
+
+
+
