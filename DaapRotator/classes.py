@@ -36,11 +36,11 @@ class Tweet():
         #create the base of the tweet
         # hashtag_regex = '<#. >'
         if self.tweet_media_url != '':
-            html = u"<p><img src=\"{0}\"> <strong><span class=\"twitter_user\">{1}</span></strong> {2}<br><img src=\"{3}\" height=\"150\" width=\"175\">" \
-               u"</p>".format(self.profile_picture_url, self.tweet_user, self.tweet_content, self.tweet_media_url)
+            html = u"<h4><img src=\"{0}\"> <strong><span class=\"twitter_user\">{1}</span></strong><br><br> {2}<br><img src=\"{3}\" height=\"150\" width=\"175\">" \
+               u"</h4>".format(self.profile_picture_url, self.tweet_user, self.tweet_content, self.tweet_media_url)
         else:
-             html = u"<p><img src=\"{0}\"> <strong><span class=\"twitter_user\">{1}</span></strong> {2}<br>" \
-               u"</p>".format(self.profile_picture_url, self.tweet_user, self.tweet_content)
+             html = u"<h4><img src=\"{0}\"> <strong><span class=\"twitter_user\">{1}</span></strong> {2}<br>" \
+               u"</h4>".format(self.profile_picture_url, self.tweet_user, self.tweet_content)
 
         return html
 

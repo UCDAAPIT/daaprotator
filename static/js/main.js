@@ -18,6 +18,11 @@
             }
 
         });
+//$('.main_twitter').slick({
+//                    autoplay: true,
+//                    autoplaySpeed: 5000
+////
+//                });
 
     $.ajax({
             type: "GET",
@@ -26,11 +31,11 @@
                 $("#twitter_col").html(data);
 //              alert(data);
                 $('.main_twitter').slick({
-                  slidesToScroll: 15,
-                    slidesToShow: 2,
                     autoplay: true,
-                    autoplaySpeed: 2000
-                })
+                    autoplaySpeed: 5000
+
+                });
+
 
             },
             error: function(jqXHR, textStatus, errorThrown){
@@ -56,18 +61,18 @@ var timerId = setInterval(function(){
         });
 
 //for twitter
-         $.ajax({
-            type: "GET",
-            url: "/twitter/",
-            success: function (data, textStatus, jqXHR){
-                $("#twitter_col").html(data);
-//              alert(data);
-            },
-            error: function(jqXHR, textStatus, errorThrown){
-                alert('could not fetch data from remote server');
-            }
-
-        });
+//         $.ajax({
+//            type: "GET",
+//            url: "/twitter/",
+//            success: function (data, textStatus, jqXHR){
+//                $("#twitter_col").html(data);
+////              alert(data);
+//            },
+//            error: function(jqXHR, textStatus, errorThrown){
+//                alert('could not fetch data from remote server');
+//            }
+//
+//        });
 
 },
 //5000
@@ -95,7 +100,7 @@ function startTime() {
 
     m = checkTime(m);
     s = checkTime(s);
-    document.getElementById('time').innerHTML = h + ":" + m + ":" + s+"<br>"+today.getMonth()+"/"+today.getDate()+"/"+today.getFullYear();
+    document.getElementById('time').innerHTML ="<h3>"+h + ":" + m + ":" + s+"<br>"+today.getMonth()+"/"+today.getDate()+"/"+today.getFullYear()+"</h3>";
     t = setTimeout(function () {
         startTime()
     }, 500);

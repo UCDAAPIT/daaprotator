@@ -9,7 +9,7 @@ from django.shortcuts import render
 def index(request):
 
     kwargs = {}
-    kwargs['tweets'] = get_twitter_feed()
+    # kwargs['tweets'] = get_twitter_feed()
     # kwargs['weather_desc'] = str(json_dict['current_observation']['weather']),
     # kwargs['winds'] = str(json_dict['current_observation']['wind_string'])
     # kwargs['weather_image_src'] = str(json_dict['current_observation']['icon_url'])

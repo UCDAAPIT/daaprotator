@@ -17,10 +17,10 @@ def get_twitter_feed():
     twitter = Twython(key.api_key, key.api_key_secret, key.oauth_key, key.oauth_key_secret)
     # ts = TwitterStreamer(settings.TWITTER_API_KEY, settings.TWITTER_API_KEY_SECRET, settings.OAUTH_TOKENS_TWITTER_CLIENT_ID, settings.OAUTH_TOKENS_TWITTER_CLIENT_SECRET)
     # ts.statuses.filter(track='twitter')
-    var = twitter.get_user_timeline(screen_name = 'uofcincy', count=5)
+    # var = twitter.get_user_timeline(screen_name = 'uofcincy', count=1)
     tweets = []
     for follower in TwitterFollowers.objects.all():
-        raw_tweets = twitter.get_user_timeline(screen_name = follower.username, count=3)
+        raw_tweets = twitter.get_user_timeline(screen_name = follower.username, count=1)
         for tweet in parse_tweets(raw_tweets):
             tweets.append(tweet)
         # tweets.append(raw_tweets)
