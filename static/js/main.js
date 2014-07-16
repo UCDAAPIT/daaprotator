@@ -5,7 +5,18 @@
  * Time: 2:30 PM
  * To change this template use File | Settings | File Templates.
  */
+//document.element.getEle
+//$('body').css("background", "url(\'/media/bill.jpg\')");
+$(function(){
+$('body').css(
+    {backgroundImage : 'url(/media/bill.jpg)',
+        backgroundSize : 'cover',
+        backgroundRepeat: 'no-repeat'
 
+    }
+
+);
+});
     $.ajax({
             type: "GET",
             url: "/weather/",

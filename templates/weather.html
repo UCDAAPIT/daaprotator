@@ -1,7 +1,7 @@
 <div class="weather_main">
 {#<p>The current weather in Cincinnati is: </p>#}
-<img src="{{ weather_image_src }}">
-<h3> {{ temp|safe }}<br>
+
+<h3> <img src="{{ weather_image_src }}">{{ temp|safe }}<br>
     {{ weather_desc }}
 
 {#    Winds {{ winds }} #}
