@@ -9,7 +9,7 @@
 //$('body').css("background", "url(\'/media/bill.jpg\')");
 $(function(){
 $('body').css(
-    {backgroundImage : 'url(/media/bill.jpg)',
+    {backgroundImage : 'url(/media/background2.png)',
         backgroundSize : 'cover',
         backgroundRepeat: 'no-repeat'
 
