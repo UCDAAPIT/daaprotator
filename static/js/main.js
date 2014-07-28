@@ -7,6 +7,21 @@
  */
 //document.element.getEle
 //$('body').css("background", "url(\'/media/bill.jpg\')");
+function launchFullScreen(element) {
+  if(element.requestFullscreen) {
+    element.requestFullscreen();
+  } else if(element.mozRequestFullScreen) {
+    element.mozRequestFullScreen();
+  } else if(element.webkitRequestFullscreen) {
+    element.webkitRequestFullscreen();
+  } else if(element.msRequestFullscreen) {
+    element.msRequestFullscreen();
+  }
+}
+  // Launch fullscreen for browsers that support it!
+launchFullScreen(document.documentElement); // the whole page
+
+
 $(function(){
 $('body').css(
     {backgroundImage : 'url(/media/background2.png)',
@@ -57,21 +72,24 @@ $('body').css(
 
 var timerId = setInterval(function(){
 
+
+        $("#time").removeClass('time_col').addClass('weather_col');
+        $("#weather_col").removeClass('weather_col').addClass('time_col');
 //alert('test');
 //ajax stuff to get the weather
-        $.ajax({
-            type: "GET",
-            url: "/weather/",
-            success: function (data, textStatus, jqXHR){
-//              alert(data);
-            },
-            error: function(jqXHR, textStatus, errorThrown){
-                alert('could not fetch data from remote server');
-            }
-
-        });
-
-//for twitter
+//        $.ajax({
+//            type: "GET",
+//            url: "/weather/",
+//            success: function (data, textStatus, jqXHR){
+////              alert(data);
+//            },
+//            error: function(jqXHR, textStatus, errorThrown){
+//                alert('could not fetch data from remote server');
+//            }
+//
+//        });
+//
+////for twitter
 //         $.ajax({
 //            type: "GET",
 //            url: "/twitter/",
@@ -87,7 +105,7 @@ var timerId = setInterval(function(){
 
 },
 //5000
-    1800000
+    5000
 );
 
 
@@ -98,12 +116,16 @@ function checkTime(i) {
     return i;
 }
 
+
+var days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+
 function startTime() {
     var today = new Date();
 
     var h = today.getHours();
     var m = today.getMinutes();
     var s = today.getSeconds();
+    var day = days[ today.getDay() ];
     // add a zero in front of numbers<10
     if(h > 12){
         h = h-12;
@@ -111,7 +133,8 @@ function startTime() {
 
     m = checkTime(m);
     s = checkTime(s);
-    document.getElementById('time').innerHTML ="<h3>"+h + ":" + m + ":" + s+"<br>"+today.getMonth()+"/"+today.getDate()+"/"+today.getFullYear()+"</h3>";
+    document.getElementById('clock').innerHTML = "<div class=\"inner-time\"><p class=\"big-time\">"+h + ":" + m + ":" + s+"</p>"
+    document.getElementById('time').innerHTML ="<div class=\"inner-date\"><p class=\"big-text\">"+day+"<br>"+today.getMonth()+"/"+today.getDate()+"/"+today.getFullYear()+"<br></p>";
     t = setTimeout(function () {
         startTime()
     }, 500);
