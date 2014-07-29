@@ -75,7 +75,7 @@ var timerId = setInterval(function(){
 
         $("#time").removeClass('time_col').addClass('weather_col');
         $("#weather_col").removeClass('weather_col').addClass('time_col');
-//alert('test');
+//alert('test');weather_col
 //ajax stuff to get the weather
 //        $.ajax({
 //            type: "GET",
