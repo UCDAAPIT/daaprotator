@@ -12,9 +12,7 @@
     <script  src="{{ STATIC_URL }}js/main.js"></script>
 </head>
 {% with STATIC_URL|add:"css/" as url %}
-
 <body class="body" onload="loadCSS('{{ url }}')">
-     {{ url }}
 {% endwith %}
 <br>
 <br>
