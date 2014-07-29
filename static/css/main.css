@@ -27,12 +27,12 @@
 
 }
 .big-text{
-    font-size:600%
+    font-size: 400%
 }
 
 p{
     font-family: "Arial Black", "Arial Bold", Gadget, sans-serif;
-    font-size:400%
+    font-size:300%
 
 }
 .twitter_content{
@@ -69,7 +69,7 @@ p{
         text-align: left;
 /*line-height: 100px;*/
 
-    font-size: 1000%;
+    font-size: 800%;
 
 }
 .inner-date{
