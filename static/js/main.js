@@ -21,16 +21,22 @@ function launchFullScreen(element) {
   // Launch fullscreen for browsers that support it!
 launchFullScreen(document.documentElement); // the whole page
 
-
+/*
+ background: url(images/bg.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  */
 $(function(){
-$('body').css(
-    {backgroundImage : 'url(/media/background2.png)',
-        backgroundSize : 'cover',
-        backgroundRepeat: 'no-repeat'
-
-    }
-
-);
+//$('body').css(
+//    {backgroundImage : 'url(/media/background2.png)',
+//        backgroundSize : 'cover',
+//        backgroundRepeat: 'no-repeat'
+//
+//    }
+//
+//);
 });
     $.ajax({
             type: "GET",
