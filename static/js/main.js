@@ -7,19 +7,22 @@
  */
 //document.element.getEle
 //$('body').css("background", "url(\'/media/bill.jpg\')");
-function launchFullScreen(element) {
-  if(element.requestFullscreen) {
-    element.requestFullscreen();
-  } else if(element.mozRequestFullScreen) {
-    element.mozRequestFullScreen();
-  } else if(element.webkitRequestFullscreen) {
-    element.webkitRequestFullscreen();
-  } else if(element.msRequestFullscreen) {
-    element.msRequestFullscreen();
-  }
-}
-  // Launch fullscreen for browsers that support it!
-launchFullScreen(document.documentElement); // the whole page
+//function launchFullScreen(element) {
+//  if(element.requestFullscreen) {
+//    element.requestFullscreen();
+//  } else if(element.mozRequestFullScreen) {
+//    element.mozRequestFullScreen();
+//  } else if(element.webkitRequestFullscreen) {
+//    element.webkitRequestFullscreen();
+//  } else if(element.msRequestFullscreen) {
+//    element.msRequestFullscreen();
+//  }
+//}
+//  // Launch fullscreen for browsers that support it!
+//launchFullScreen(document.documentElement); // the whole page
+//
+var days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+
 
 /*
  background: url(images/bg.jpg) no-repeat center center fixed;
@@ -76,11 +79,39 @@ $(function(){
 
         });
 
-var timerId = setInterval(function(){
+//startDate();
+var flashTimer = setInterval(function(){
+
+$('.big-text, .big-time, body').fadeOut("slow", function(){
+    $('body').css(
+    {background : 'url(/media/black.png)',
+        webkitBackgroundSize: "cover",
+        oBackgroundSize: "cover",
+        backgroundSize: "cover"
+    });
 
 
-        $("#time").removeClass('time_col').addClass('weather_col');
-        $("#weather_col").removeClass('weather_col').addClass('time_col');
+$('.big-text, big-time, body').fadeIn("slow", function(){
+$('body').css(
+    {background : 'url(/media/background2.png)',
+webkitBackgroundSize: "cover",
+        oBackgroundSize: "cover",
+        backgroundSize: "cover"
+    });
+//
+});
+});
+
+},
+//5000
+    6000
+);
+
+var newTimer = setInterval(function(){
+
+
+//        $("#time").removeClass('time_col').addClass('weather_col');
+//        $("#weather_col").removeClass('weather_col').addClass('time_col');
 //alert('test');weather_col
 //ajax stuff to get the weather
 //        $.ajax({
@@ -111,7 +142,7 @@ var timerId = setInterval(function(){
 
 },
 //5000
-    5000
+    10000
 );
 
 
@@ -123,7 +154,7 @@ function checkTime(i) {
 }
 
 
-var days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+
 
 function startTime() {
     var today = new Date();
@@ -140,20 +171,43 @@ function startTime() {
     m = checkTime(m);
     s = checkTime(s);
     document.getElementById('clock').innerHTML = "<div class=\"inner-time\"><p class=\"big-time\">"+h + ":" + m + ":" + s+"</p>"
-    document.getElementById('time').innerHTML ="<div class=\"inner-date\"><p class=\"big-text\">"+day+"<br>"+today.getMonth()+"/"+today.getDate()+"/"+today.getFullYear()+"<br></p>";
+//    document.getElementById('time').innerHTML ="<div class=\"inner-date\"><p class=\"big-text\">"+day+"<br>"+today.getMonth()+"/"+today.getDate()+"/"+today.getFullYear()+"<br></p>";
     t = setTimeout(function () {
         startTime()
     }, 500);
 }
+
+function startDate(){
+        var today = new Date();
+
+    var h = today.getHours();
+    var m = today.getMinutes();
+    var s = today.getSeconds();
+    var day = days[today.getDay() ];
+    // add a zero in front of numbers<10
+    if(h > 12){
+        h = h-12;
+    }
+
+    m = checkTime(m);
+    s = checkTime(s);
+//    document.getElementById('clock').innerHTML = "<div class=\"inner-time\"><p class=\"big-time\">"+h + ":" + m + ":" + s+"</p>"
+    document.getElementById('time').innerHTML ="<div class=\"inner-date\"><p class=\"big-text\">"+day+"<br>"+(today.getMonth()+1)+"/"+today.getDate()+"/"+today.getFullYear()+"<br></p>";
+    t = setTimeout(function () {
+        startTime()
+    }, 500);
+
+}
+var dateTimer = setInterval(startDate, 10000);
 var timeTimer = setInterval(startTime, 1000);
 //startTime();
 
 
 function loadCSS(url){
     //here's where we will dynamically set the font size and such
-if(750 < screen.height <800 || 1300 < screen.width < 1399){
+if(750 < parseInt(screen.height) <800 && 1300 < parseInt(screen.width) < 1399){
     $('head').append( $('<link rel="stylesheet" type="text/css" />').attr('href', url+"small/main.css") );
-//    alert("small");
+    alert("small. Screen size:"+screen.height+"x"+screen.width);
 //     $('.main_twitter').css(
 //    {
 //        "font-size": "150%"
@@ -175,11 +229,11 @@ if(750 < screen.height <800 || 1300 < screen.width < 1399){
 //    }
 //
 //);
-}else if(1200 < screen.height < 1299 || 1850 < screen.width < 1999){
+}else if(1200 <= parseInt(screen.height) <= 1299 && 1850 < parseInt(screen.width) < 1999){
     //we're just going to try to load the css from a file
     $('head').append( $('<link rel="stylesheet" type="text/css" />').attr('href', url+"large/main.css") );
 
-//    alert("big");
+    alert("big");
 //         $('.main_twitter').css(
 //    {
 //        "font-size": "400%"
