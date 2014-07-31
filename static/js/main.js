@@ -83,21 +83,21 @@ $(function(){
 var flashTimer = setInterval(function(){
 
 $('.big-text, .big-time, body').fadeOut("slow", function(){
-    $('body').css(
-    {background : 'url(/media/black.png)',
-        webkitBackgroundSize: "cover",
-        oBackgroundSize: "cover",
-        backgroundSize: "cover"
-    });
+//    $('body').css(
+//    {background : 'url(/media/black.png)',
+//        webkitBackgroundSize: "cover",
+//        oBackgroundSize: "cover",
+//        backgroundSize: "cover"
+//    });
 
 
 $('.big-text, big-time, body').fadeIn("slow", function(){
-$('body').css(
-    {background : 'url(/media/background2.png)',
-webkitBackgroundSize: "cover",
-        oBackgroundSize: "cover",
-        backgroundSize: "cover"
-    });
+//$('body').css(
+//    {background : 'url(/media/background2.png)',
+//webkitBackgroundSize: "cover",
+//        oBackgroundSize: "cover",
+//        backgroundSize: "cover"
+//    });
 //
 });
 });
@@ -207,7 +207,7 @@ function loadCSS(url){
     //here's where we will dynamically set the font size and such
 if(750 < parseInt(screen.height) <800 && 1300 < parseInt(screen.width) < 1399){
     $('head').append( $('<link rel="stylesheet" type="text/css" />').attr('href', url+"small/main.css") );
-    alert("small. Screen size:"+screen.height+"x"+screen.width);
+//    alert("small. Screen size:"+screen.height+"x"+screen.width);
 //     $('.main_twitter').css(
 //    {
 //        "font-size": "150%"
@@ -233,7 +233,7 @@ if(750 < parseInt(screen.height) <800 && 1300 < parseInt(screen.width) < 1399){
     //we're just going to try to load the css from a file
     $('head').append( $('<link rel="stylesheet" type="text/css" />').attr('href', url+"large/main.css") );
 
-    alert("big");
+//    alert("big");
 //         $('.main_twitter').css(
 //    {
 //        "font-size": "400%"
