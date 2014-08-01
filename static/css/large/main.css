@@ -28,6 +28,7 @@
 }
 .row{
     color: #ffffff;
+    font-family: "Myriad Pro", "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
 
     /*background-color: #ffffff;*/
     /*box-shadow: 10px 10px 5px #888888;*/
@@ -42,7 +43,7 @@
 
 }
 p{
-    font-family: "Arial Black", "Arial Bold", Gadget, sans-serif;
+    font-family: "Myriad Pro", "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
     /*font-size:300%*/
 
 }

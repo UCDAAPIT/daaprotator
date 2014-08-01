@@ -133,22 +133,15 @@ var flashTimer = setInterval(function(){
 
 $('.big-text, .big-tisme, body').fadeOut("slow", function(){
 
-    $('body').css(
-     {background : 'url(/media/white.png)',
- webkitBackgroundSize: "cover",
-         oBackgroundSize: "cover",
-         backgroundSize: "cover"
-     });
+//    $('body').css(
+//     {background : 'url(/media/white.png)',
+// webkitBackgroundSize: "cover",
+//         oBackgroundSize: "cover",
+//         backgroundSize: "cover"
+//     });
 
 $('.big-text, big-time, body').fadeIn("slow", function(){
     //just to determine whether they should swap one way vs the other
-$('body').css(
-     {background : 'url(/media/background2.png)',
- webkitBackgroundSize: "cover",
-         oBackgroundSize: "cover",
-         backgroundSize: "cover"
-     });
-
 
 });
 //     $('#weather_col').swap({
@@ -212,24 +205,42 @@ $('body').css(
 
     m = checkTime(m);
     s = checkTime(s);
-  document.getElementById('time').innerHTML ="<div class=\"inner-date\"><p class=\"big-text\">"+day+"<br>"+(today.getMonth()+1)+"/"+today.getDate()+"/"+today.getFullYear()+"<br></p>";
-
-//    window.location.reload();
-
-
+    document.getElementById('time').innerHTML ="<div class=\"inner-date\"><p class=\"big-text\">"+day+"<br>"+(today.getMonth()+1)+"/"+today.getDate()+"/"+today.getFullYear()+"<br></p>";
     //increment
     counter = (counter > 100) ? 1 : counter +1;
 //$('body').show();
 },
 //5000
-    10000
+    60000
 );
 
-var newTimer = setInterval(function(){
+
+//there's a reason for this.. I think
+//flashing different backgrounds
+var bgCunter = 2;
+var backgroundTimer = setInterval(function(){
+        var imageURL = "url(/media/background"+bgCunter+".png)";
+        $('body').css(
+     {background : imageURL,
+ webkitBackgroundSize: "cover",
+         oBackgroundSize: "cover",
+         backgroundSize: "cover"
+     });
+alert(bgCunter);
+bgCunter++;
+
+if(bgCunter == 5){
+    $('.row').css({
+        'color' : '#000000'
+    });
+
+    bgCunter = 2;
+}
+
 
 },
 //5000
-    10000
+    4000
 );
 
 
