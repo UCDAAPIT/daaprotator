@@ -127,7 +127,12 @@ $(function(){
 //startDate();
 var counter = 1;
 var flashTimer = setInterval(function(){
+        $('body').css(
+    {backgroundImage : 'url(/media/white.png)',
+        backgroundSize : 'cover',
+        backgroundRepeat: 'no-repeat'
 
+    });
 $('.big-text, .big-time, body').fadeOut("slow", function(){
 
 $('.big-text, big-time, body').fadeIn("slow", function(){
@@ -138,9 +143,19 @@ $('.big-text, big-time, body').fadeIn("slow", function(){
 //            target: "time"
 //        });
 });
+
+
+//        var htmlNew = "<style class=\"background-style\">body{background: url(/media/white.png) no-repeat center center fixed;-webkit-background-size: cover;-moz-background-size: cover;-o-background-size: cover;background-size: cover;}</style>"
+//        $('head').append(htmlNew);
+//
           $('.time_col').remove();
     $('.weather_col').remove();
-//        alert(counter);
+
+
+
+
+
+
           if(counter %2 == 0){
         $('<div class="col-md-4 time_col" id="time"></div>').insertBefore(".clock-col");
         $('<div class="col-md-4 weather_col" id="weather_col"></div>').insertAfter(".clock-col");
@@ -164,7 +179,14 @@ $('.big-text, big-time, body').fadeIn("slow", function(){
         });
 
 
+        $('body').css(
+    {backgroundImage : 'url(/media/background2.png)',
+        backgroundSize : 'cover',
+        backgroundRepeat: 'no-repeat'
 
+    }
+
+);
         var today = new Date();
 
     var h = today.getHours();
@@ -180,6 +202,7 @@ $('.big-text, big-time, body').fadeIn("slow", function(){
     s = checkTime(s);
   document.getElementById('time').innerHTML ="<div class=\"inner-date\"><p class=\"big-text\">"+day+"<br>"+(today.getMonth()+1)+"/"+today.getDate()+"/"+today.getFullYear()+"<br></p>";
 
+//    window.location.reload();
 
 
     //increment
@@ -191,37 +214,6 @@ $('.big-text, big-time, body').fadeIn("slow", function(){
 );
 
 var newTimer = setInterval(function(){
-
-
-//        $("#time").removeClass('time_col').addClass('weather_col');
-//        $("#weather_col").removeClass('weather_col').addClass('time_col');
-//alert('test');weather_col
-//ajax stuff to get the weather
-//        $.ajax({
-//            type: "GET",
-//            url: "/weather/",
-//            success: function (data, textStatus, jqXHR){
-////              alert(data);
-//            },
-//            error: function(jqXHR, textStatus, errorThrown){
-//                alert('could not fetch data from remote server');
-//            }
-//
-//        });
-//
-////for twitter
-//         $.ajax({
-//            type: "GET",
-//            url: "/twitter/",
-//            success: function (data, textStatus, jqXHR){
-//                $("#twitter_col").html(data);
-////              alert(data);
-//            },
-//            error: function(jqXHR, textStatus, errorThrown){
-//                alert('could not fetch data from remote server');
-//            }
-//
-//        });
 
 },
 //5000
@@ -245,54 +237,10 @@ function loadCSS(url){
     //here's where we will dynamically set the font size and such
 if(750 < parseInt(screen.height) <800 && 1300 < parseInt(screen.width) < 1399){
     $('head').append( $('<link rel="stylesheet" type="text/css" />').attr('href', url+"small/main.css") );
-//    alert("small. Screen size:"+screen.height+"x"+screen.width);
-//     $('.main_twitter').css(
-//    {
-//        "font-size": "150%"
-//
-//    }
-//
-//);
-//        $('.big_text').css(
-//    {
-//        'font-size': parseFloat($('.big-text').css('font-size', 10)*8.0)
-//
-//    }
-//
-//);
-//        $('.big-time').css(
-//    {
-//        "font-size": "400%"
-//
-//    }
-//
-//);
+
 }else if(1200 <= parseInt(screen.height) <= 1299 && 1850 < parseInt(screen.width) < 1999){
     //we're just going to try to load the css from a file
     $('head').append( $('<link rel="stylesheet" type="text/css" />').attr('href', url+"large/main.css") );
-
-//    alert("big");
-//         $('.main_twitter').css(
-//    {
-//        "font-size": "400%"
-//
-//    }
-//
-//);
-//        $('.big_text').css(
-//    {
-//        "font-size": "400%"
-//
-//    }
-//
-//);
-//        $('.big-time').css(
-//    {
-//     "font-size": "800%"
-//
-//    }
-//
-//);
     }
 
 }
