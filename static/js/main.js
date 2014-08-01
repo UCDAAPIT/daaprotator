@@ -23,6 +23,51 @@
 //
 var days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
 
+function startTime() {
+    var today = new Date();
+
+    var h = today.getHours();
+    var m = today.getMinutes();
+    var s = today.getSeconds();
+    var day = days[ today.getDay() ];
+    // add a zero in front of numbers<10
+    if(h > 12){
+        h = h-12;
+    }
+
+    m = checkTime(m);
+    s = checkTime(s);
+    document.getElementById('clock').innerHTML = "<div class=\"inner-time\"><p class=\"big-time\">"+h + ":" + m + ":" + s+"</p>"
+//    document.getElementById('time').innerHTML ="<div class=\"inner-date\"><p class=\"big-text\">"+day+"<br>"+today.getMonth()+"/"+today.getDate()+"/"+today.getFullYear()+"<br></p>";
+    t = setTimeout(function () {
+        startTime()
+    }, 500);
+}
+
+function startDate(){
+        var today = new Date();
+
+    var h = today.getHours();
+    var m = today.getMinutes();
+    var s = today.getSeconds();
+    var day = days[today.getDay() ];
+    // add a zero in front of numbers<10
+    if(h > 12){
+        h = h-12;
+    }
+
+    m = checkTime(m);
+    s = checkTime(s);
+//    document.getElementById('clock').innerHTML = "<div class=\"inner-time\"><p class=\"big-time\">"+h + ":" + m + ":" + s+"</p>"
+    document.getElementById('time').innerHTML ="<div class=\"inner-date\"><p class=\"big-text\">"+day+"<br>"+(today.getMonth()+1)+"/"+today.getDate()+"/"+today.getFullYear()+"<br></p>";
+    t = setTimeout(function () {
+        startTime()
+    }, 500);
+
+}
+//var dateTimer = setInterval(startDate, 10000);
+var timeTimer = setInterval(startTime, 1000);
+//startTime();
 
 /*
  background: url(images/bg.jpg) no-repeat center center fixed;
@@ -80,31 +125,69 @@ $(function(){
         });
 
 //startDate();
+var counter = 1;
 var flashTimer = setInterval(function(){
 
 $('.big-text, .big-time, body').fadeOut("slow", function(){
-//    $('body').css(
-//    {background : 'url(/media/black.png)',
-//        webkitBackgroundSize: "cover",
-//        oBackgroundSize: "cover",
-//        backgroundSize: "cover"
-//    });
-
 
 $('.big-text, big-time, body').fadeIn("slow", function(){
-//$('body').css(
-//    {background : 'url(/media/background2.png)',
-//webkitBackgroundSize: "cover",
-//        oBackgroundSize: "cover",
-//        backgroundSize: "cover"
-//    });
-//
+    //just to determine whether they should swap one way vs the other
+
 });
+//     $('#weather_col').swap({
+//            target: "time"
+//        });
 });
+          $('.time_col').remove();
+    $('.weather_col').remove();
+//        alert(counter);
+          if(counter %2 == 0){
+        $('<div class="col-md-4 time_col" id="time"></div>').insertBefore(".clock-col");
+        $('<div class="col-md-4 weather_col" id="weather_col"></div>').insertAfter(".clock-col");
+    }else{
+        $('<div class="col-md-4 weather_col" id="weather_col"></div>').insertBefore(".clock-col");
+        $('<div class="col-md-4 time_col" id="time"></div>').insertAfter(".clock-col");
+
+    }
+        //just to test for now
+          $.ajax({
+            type: "GET",
+            url: "/weather/",
+            success: function (data, textStatus, jqXHR){
+                $("#weather_col").html(data);
+//              alert(data);
+            },
+            error: function(jqXHR, textStatus, errorThrown){
+                alert('could not fetch data from remote server');
+            }
+
+        });
+
+
+
+        var today = new Date();
+
+    var h = today.getHours();
+    var m = today.getMinutes();
+    var s = today.getSeconds();
+    var day = days[ today.getDay() ];
+    // add a zero in front of numbers<10
+    if(h > 12){
+        h = h-12;
+    }
+
+    m = checkTime(m);
+    s = checkTime(s);
+  document.getElementById('time').innerHTML ="<div class=\"inner-date\"><p class=\"big-text\">"+day+"<br>"+(today.getMonth()+1)+"/"+today.getDate()+"/"+today.getFullYear()+"<br></p>";
+
+
+
+    //increment
+    counter = (counter > 100) ? 1 : counter +1;
 
 },
 //5000
-    6000
+    10000
 );
 
 var newTimer = setInterval(function(){
@@ -156,51 +239,6 @@ function checkTime(i) {
 
 
 
-function startTime() {
-    var today = new Date();
-
-    var h = today.getHours();
-    var m = today.getMinutes();
-    var s = today.getSeconds();
-    var day = days[ today.getDay() ];
-    // add a zero in front of numbers<10
-    if(h > 12){
-        h = h-12;
-    }
-
-    m = checkTime(m);
-    s = checkTime(s);
-    document.getElementById('clock').innerHTML = "<div class=\"inner-time\"><p class=\"big-time\">"+h + ":" + m + ":" + s+"</p>"
-//    document.getElementById('time').innerHTML ="<div class=\"inner-date\"><p class=\"big-text\">"+day+"<br>"+today.getMonth()+"/"+today.getDate()+"/"+today.getFullYear()+"<br></p>";
-    t = setTimeout(function () {
-        startTime()
-    }, 500);
-}
-
-function startDate(){
-        var today = new Date();
-
-    var h = today.getHours();
-    var m = today.getMinutes();
-    var s = today.getSeconds();
-    var day = days[today.getDay() ];
-    // add a zero in front of numbers<10
-    if(h > 12){
-        h = h-12;
-    }
-
-    m = checkTime(m);
-    s = checkTime(s);
-//    document.getElementById('clock').innerHTML = "<div class=\"inner-time\"><p class=\"big-time\">"+h + ":" + m + ":" + s+"</p>"
-    document.getElementById('time').innerHTML ="<div class=\"inner-date\"><p class=\"big-text\">"+day+"<br>"+(today.getMonth()+1)+"/"+today.getDate()+"/"+today.getFullYear()+"<br></p>";
-    t = setTimeout(function () {
-        startTime()
-    }, 500);
-
-}
-var dateTimer = setInterval(startDate, 10000);
-var timeTimer = setInterval(startTime, 1000);
-//startTime();
 
 
 function loadCSS(url){
