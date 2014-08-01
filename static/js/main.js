@@ -109,6 +109,9 @@ var timeTimer = setInterval(startTime, 1000);
 
                 });
 
+                //remove the slick buttons
+                $('.slick-next, .slick-prev').remove();
+
 
             },
             error: function(jqXHR, textStatus, errorThrown){
@@ -220,21 +223,29 @@ $('.big-text, big-time, body').fadeIn("slow", function(){
 var bgCunter = 2;
 var backgroundTimer = setInterval(function(){
         var imageURL = "url(/media/background"+bgCunter+".png)";
-        $('body').css(
+           $('body').css(
      {background : imageURL,
  webkitBackgroundSize: "cover",
          oBackgroundSize: "cover",
          backgroundSize: "cover"
      });
-alert(bgCunter);
-bgCunter++;
+//alert(bgCunter);
+
 
 if(bgCunter == 5){
-    $('.row').css({
+    $('.row, .twitter_content, .twitter_user').css({
         'color' : '#000000'
     });
 
+
     bgCunter = 2;
+}else{
+    $('.row, .twitter_content, .twitter_user').css({
+        'color' : '#ffffff'
+    });
+    bgCunter++;
+
+
 }
 
 
