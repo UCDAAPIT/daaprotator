@@ -21,8 +21,9 @@
 //  // Launch fullscreen for browsers that support it!
 //launchFullScreen(document.documentElement); // the whole page
 //
+            $('body').hide();
 var days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
-
+//$('.sometag').backgroundImage("url(/media/white.png)")
 function startTime() {
     var today = new Date();
 
@@ -76,16 +77,8 @@ var timeTimer = setInterval(startTime, 1000);
   -o-background-size: cover;
   background-size: cover;
   */
-$(function(){
-//$('body').css(
-//    {backgroundImage : 'url(/media/background2.png)',
-//        backgroundSize : 'cover',
-//        backgroundRepeat: 'no-repeat'
-//
-//    }
-//
-//);
-});
+//$(function(){
+//});
     $.ajax({
             type: "GET",
             url: "/weather/",
@@ -127,16 +120,35 @@ $(function(){
 //startDate();
 var counter = 1;
 var flashTimer = setInterval(function(){
-        $('body').css(
-    {backgroundImage : 'url(/media/white.png)',
-        backgroundSize : 'cover',
-        backgroundRepeat: 'no-repeat'
+    $('body').css(
+    {
+        backgroundColor : "white"
+//        backgroundColor : 'url(/media/background2.png)',
+//        backgroundSize : 'cover',
+//        backgroundRepeat: 'no-repeat'
 
-    });
-$('.big-text, .big-time, body').fadeOut("slow", function(){
+    }
+
+);
+
+$('.big-text, .big-tisme, body').fadeOut("slow", function(){
+
+    $('body').css(
+     {background : 'url(/media/white.png)',
+ webkitBackgroundSize: "cover",
+         oBackgroundSize: "cover",
+         backgroundSize: "cover"
+     });
 
 $('.big-text, big-time, body').fadeIn("slow", function(){
     //just to determine whether they should swap one way vs the other
+$('body').css(
+     {background : 'url(/media/background2.png)',
+ webkitBackgroundSize: "cover",
+         oBackgroundSize: "cover",
+         backgroundSize: "cover"
+     });
+
 
 });
 //     $('#weather_col').swap({
@@ -179,14 +191,14 @@ $('.big-text, big-time, body').fadeIn("slow", function(){
         });
 
 
-        $('body').css(
-    {backgroundImage : 'url(/media/background2.png)',
-        backgroundSize : 'cover',
-        backgroundRepeat: 'no-repeat'
-
-    }
-
-);
+//        $('body').css(
+//    {backgroundImage : 'url(/media/background2.png)',
+//        backgroundSize : 'cover',
+//        backgroundRepeat: 'no-repeat'
+//
+//    }
+//
+//);
         var today = new Date();
 
     var h = today.getHours();
@@ -207,7 +219,7 @@ $('.big-text, big-time, body').fadeIn("slow", function(){
 
     //increment
     counter = (counter > 100) ? 1 : counter +1;
-
+//$('body').show();
 },
 //5000
     10000
