@@ -66,7 +66,9 @@ function startDate(){
     }, 500);
 
 }
-//var dateTimer = setInterval(startDate, 10000);
+
+//startDate();
+var dateTimer = setInterval(startDate, 10000);
 var timeTimer = setInterval(startTime, 1000);
 //startTime();
 
