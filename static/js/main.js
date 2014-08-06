@@ -21,10 +21,13 @@
 //  // Launch fullscreen for browsers that support it!
 //launchFullScreen(document.documentElement); // the whole page
 //
-            $('body').hide();
+
+
+//            $('body').hide();
 var days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
 //$('.sometag').backgroundImage("url(/media/white.png)")
 function startTime() {
+//    alert(screen.height + " " + screen.width);
     var today = new Date();
 
     var h = today.getHours();
@@ -270,13 +273,21 @@ function checkTime(i) {
 
 
 function loadCSS(url){
+alert(screen.height+" " + screen.width);
+//    if(isNaN(screen.width)){
+//        alert("Not a number");
+//    }else{
+//        alert("Number");
+//    }
+//    alert(screen.height.valueOf()+ " " + screen.width);
     //here's where we will dynamically set the font size and such
-if(750 < parseInt(screen.height) <800 && 1300 < parseInt(screen.width) < 1399){
-    $('head').append( $('<link rel="stylesheet" type="text/css" />').attr('href', url+"small/main.css") );
+//if(750 < screen.height.valueOf() <800 || 1300 < screen.width.valueOf() < 1399){
+    if (1190 <= screen.height.valueOf() <= 1300 && 1850 <= screen.width.valueOf() <= 1999){
+        $('head').append( $('<link rel="stylesheet" type="text/css" />').attr('href', url+"large/main.css") );
 
-}else if(1200 <= parseInt(screen.height) <= 1299 && 1850 < parseInt(screen.width) < 1999){
+}else if(750 < screen.height.valueOf() <800 && 1300 < screen.width.valueOf() < 1399){
     //we're just going to try to load the css from a file
-    $('head').append( $('<link rel="stylesheet" type="text/css" />').attr('href', url+"large/main.css") );
+    $('head').append( $('<link rel="stylesheet" type="text/css" />').attr('href', url+"small/main.css") );
     }
 
 }
