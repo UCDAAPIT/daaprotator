@@ -16,13 +16,13 @@
     /*background-color: yellow;*/
     /*box-shadow: 10px 10px 5px #888888;*/
 /*}*/
-         body{
-            background: url(/media/background2.png) no-repeat center center fixed;
-      -webkit-background-size: 100%;
-      -moz-background-size: 100%;
-      -o-background-size: 100%;
-      background-size: 100%;
-        }
+         /*body{*/
+            /*background: url(/media/background2.png) no-repeat center center fixed;*/
+      /*-webkit-background-size: 100%;*/
+      /*-moz-background-size: 100%;*/
+      /*-o-background-size: 100%;*/
+      /*background-size: 100%;*/
+        /*}*/
 .container{
     width: 100%;
 }
