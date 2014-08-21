@@ -235,9 +235,7 @@ var backgroundTimer = setInterval(function(){
 //    $("body").width(width);
            $('body').css(
      {background : imageURL,
- webkitBackgroundSize: "cover",
-         oBackgroundSize: "cover",
-        "background-size":"contain"
+        "background-size":"100% 100%"
 //         backgroundSize: width+"px "+height+"px "
      });
 //alert(bgCunter);
