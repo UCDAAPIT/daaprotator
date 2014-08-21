@@ -232,7 +232,7 @@ var backgroundTimer = setInterval(function(){
      {background : imageURL,
  webkitBackgroundSize: "cover",
          oBackgroundSize: "cover",
-         backgroundSize: "auto"
+         backgroundSize: "cover"
      });
 //alert(bgCunter);
 
@@ -290,4 +290,8 @@ alert(screen.height+" " + screen.width);
     $('head').append( $('<link rel="stylesheet" type="text/css" />').attr('href', url+"small/main.css") );
     }
 
+
+//    $("body").photoResize({
+//					bottomSpacing: 15
+//				});
 }
