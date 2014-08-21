@@ -229,8 +229,10 @@ var bgCunter = 2;
 
 var backgroundTimer = setInterval(function(){
         var imageURL = "url(/media/background"+bgCunter+".png)";
-            $("body").height(height);
-    $("body").width(width);
+               var height = $(window).height();
+    var width = $(window).width();
+//            $("body").height(height);
+//    $("body").width(width);
            $('body').css(
      {background : imageURL,
  webkitBackgroundSize: "cover",
