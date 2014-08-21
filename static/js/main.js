@@ -230,9 +230,9 @@ var backgroundTimer = setInterval(function(){
         var imageURL = "url(/media/background"+bgCunter+".png)";
            $('body').css(
      {background : imageURL,
- webkitBackgroundSize: "cover",
-         oBackgroundSize: "cover",
-         backgroundSize: "cover"
+ webkitBackgroundSize: "100%",
+         oBackgroundSize: "100%",
+         backgroundSize: "100%"
      });
 //alert(bgCunter);
 
