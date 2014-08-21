@@ -283,14 +283,18 @@ alert($(window).height()+" " + $(window).width());
 //    alert(screen.height.valueOf()+ " " + screen.width);
     //here's where we will dynamically set the font size and such
 //if(750 < screen.height.valueOf() <800 || 1300 < screen.width.valueOf() < 1399){
-    if (1190 <= $(window).height() && 1850 <= $(window).width() ){
+    if (1190 <= $(window).height() && 1800 <= $(window).width() ){
         alert("large");
         $('head').append( $('<link rel="stylesheet" type="text/css" />').attr('href', url+"large/main.css") );
 
-}else if( $(window).height() < 1189 && $(window).width() < 1399){
+}else if( $(window).height() < 1189 && $(window).width() < 1800){
         alert("small");
     //we're just going to try to load the css from a file
     $('head').append( $('<link rel="stylesheet" type="text/css" />').attr('href', url+"small/main.css") );
     }
+    //load the large by default
 
+else{
+       $('head').append( $('<link rel="stylesheet" type="text/css" />').attr('href', url+"large/main.css") );
+    }
 }
