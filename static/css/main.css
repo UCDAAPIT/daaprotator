@@ -21,7 +21,7 @@
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
-  background-size: auto auto;
+  background-size: contain;
     }
 .container{
     width: 100%;
