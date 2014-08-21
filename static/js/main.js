@@ -232,7 +232,7 @@ var backgroundTimer = setInterval(function(){
      {background : imageURL,
  webkitBackgroundSize: "cover",
          oBackgroundSize: "cover",
-         backgroundSize: "cover"
+         backgroundSize: "auto"
      });
 //alert(bgCunter);
 
