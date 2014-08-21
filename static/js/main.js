@@ -226,21 +226,17 @@ $('.big-text, big-time, body').fadeIn("slow", function(){
 //there's a reason for this.. I think
 //flashing different backgrounds
 var bgCunter = 2;
+
 var backgroundTimer = setInterval(function(){
         var imageURL = "url(/media/background"+bgCunter+".png)";
-        $('.bg-image').attr("src", imageURL);
-              var height = $(window).height();
-    var width = $(window).width();
-        $('.bg-image').attr("width", width);
-        $('.bg-image').attr("height", height);
-
-
-//           $('body').css(
-//     {background : imageURL,
-// webkitBackgroundSize: "cover",
-//         oBackgroundSize: "cover",
-//         backgroundSize: "cover"
-//     });
+            $("body").height(height);
+    $("body").width(width);
+           $('body').css(
+     {background : imageURL,
+ webkitBackgroundSize: "cover",
+         oBackgroundSize: "cover",
+         backgroundSize: width+"px "+height+"px "
+     });
 //alert(bgCunter);
 
 
@@ -282,6 +278,7 @@ function checkTime(i) {
 function loadCSS(url){
 
 alert($(window).height()+" " + $(window).width());
+
 //    if(isNaN(screen.width)){
 //        alert("Not a number");
 //    }else{
@@ -290,7 +287,8 @@ alert($(window).height()+" " + $(window).width());
 //    alert(screen.height.valueOf()+ " " + screen.width);
     //here's where we will dynamically set the font size and such
 //if(750 < screen.height.valueOf() <800 || 1300 < screen.width.valueOf() < 1399){
-
+//       var height = $(window).height();
+//    var width = $(window).width();
 //    $("body").height(height);
 //    $("body").width(width);
     if (1190 <= $(window).height() && 1800 <= $(window).width() ){

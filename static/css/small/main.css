@@ -16,12 +16,14 @@
     /*background-color: yellow;*/
     /*box-shadow: 10px 10px 5px #888888;*/
 /*}*/
-         .bg-image{
+         body{
+             /*opacity: 100%;*/
             background: url(/media/background2.png) no-repeat center center fixed;
       -webkit-background-size: cover;
       -moz-background-size: cover;
       -o-background-size: cover;
       background-size: cover;
+
         }
 
 .container{
